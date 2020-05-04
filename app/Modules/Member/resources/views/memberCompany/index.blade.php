@@ -71,13 +71,13 @@
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-default">Action</button>
                                                                 <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                    <div class="dropdown-menu" role="menu" style="">
+                                                                </button>
+                                                                <div class="dropdown-menu" role="menu" style="">
                                                                     <a class="dropdown-item" href="#">View Details</a>
                                                                     <a class="dropdown-item" href="#">Delete</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" href="#">Inactive</a>
-                                                                    </div>
-                                                                </button>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -95,13 +95,13 @@
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-default">Action</button>
                                                                 <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                    <div class="dropdown-menu" role="menu" style="">
+                                                                </button>
+                                                                <div class="dropdown-menu" role="menu" style="">
                                                                     <a class="dropdown-item" href="#">View Details</a>
                                                                     <a class="dropdown-item" href="#">Delete</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" href="#">Inactive</a>
-                                                                    </div>
-                                                                </button>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -119,13 +119,13 @@
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-default">Action</button>
                                                                 <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                    <div class="dropdown-menu" role="menu" style="">
+                                                                </button>
+                                                                <div class="dropdown-menu" role="menu" style="">
                                                                     <a class="dropdown-item" href="#">View Details</a>
                                                                     <a class="dropdown-item" href="#">Delete</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" href="#">Inactive</a>
-                                                                    </div>
-                                                                </button>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -143,13 +143,13 @@
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-default">Action</button>
                                                                 <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                    <div class="dropdown-menu" role="menu" style="">
+                                                                </button>
+                                                                <div class="dropdown-menu" role="menu" style="">
                                                                     <a class="dropdown-item" href="#">View Details</a>
                                                                     <a class="dropdown-item" href="#">Delete</a>
                                                                     <div class="dropdown-divider"></div>
                                                                     <a class="dropdown-item" href="#">Inactive</a>
-                                                                    </div>
-                                                                </button>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
