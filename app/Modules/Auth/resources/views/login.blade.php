@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ env("APP_TITLE_PREFIX") }} | Log in</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" href={{ asset("favicon.ico") }} type="image/x-icon">
+    <link rel="icon" href={{ asset("favicon.ico") }} type="image/x-icon">
     <link rel="stylesheet" href={{ asset("/plugins/fontawesome-free/css/all.min.css") }}>
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href={{ asset("/plugins/icheck-bootstrap/icheck-bootstrap.min.css") }}>
@@ -21,6 +22,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
                 <form action={{ url("auth/login") }} method="post">
+                    @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email">
                         <div class="input-group-append">

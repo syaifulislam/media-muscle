@@ -7,8 +7,15 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function welcome()
-    {
-        return view("Auth::welcome");
+    public function page(){
+        return view("Auth::login");
+    }
+
+    public function action(){
+        return redirect("/dashboard");
+    }
+
+    public function logout(){
+        return redirect("/auth/login");
     }
 }
