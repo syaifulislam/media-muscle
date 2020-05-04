@@ -1,0 +1,5 @@
+<?php
+
+/**
+ *	Member Helpers
+ */

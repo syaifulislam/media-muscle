@@ -21,6 +21,9 @@
     <div class="wrapper">
         @include('component.header')
         @include('component.sidebar')
+        <div class="content-wrapper">
+
+        </div>
     </div>
 </body>
 <script src={{ asset("/plugins/jquery/jquery.min.js") }}></script>

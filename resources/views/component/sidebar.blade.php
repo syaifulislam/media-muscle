@@ -22,13 +22,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link" style="padding-left:30px">
+                            <a href={{ url("/member/personal") }} class="nav-link" style="padding-left:30px">
                             <i class="fas fa-user-friends nav-icon"></i>
                             <p>Personal</p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link" style="padding-left:30px">
+                            <a href={{ url("/member/company") }} class="nav-link" style="padding-left:30px">
                             <i class="fas fa-building nav-icon"></i>
                             <p>Company</p>
                             </a>
