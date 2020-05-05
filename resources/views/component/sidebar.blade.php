@@ -10,12 +10,12 @@
                 <img src={{ asset("img/user_default.png") }} class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">John Doe</a>
+                <a href="#" class="d-block">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</a>
             </div>
         </div>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview {{ Route::currentRouteName() === "member" ?  "menu-open" : ""}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Member<i class="fas fa-angle-left right"></i></p>
@@ -114,8 +114,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item {{ Route::currentRouteName() === "user" ?  "menu-open" : ""}}">
+                    <a href={{ url("/user") }} class="nav-link">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>Users</p>
                     </a>

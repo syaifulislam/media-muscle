@@ -24,6 +24,7 @@
         <div class="content-wrapper">
 
         </div>
+        @include('component.footer')
     </div>
 </body>
 <script src={{ asset("/plugins/jquery/jquery.min.js") }}></script>

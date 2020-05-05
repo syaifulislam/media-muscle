@@ -5287,6 +5287,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
 
+.middle-button{
+  margin-top: 2rem;
+}
+
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;

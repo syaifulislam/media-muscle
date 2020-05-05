@@ -5,3 +5,8 @@
         </li>
     </ul>
 </nav>
+<link rel="stylesheet" href={{ asset("/css/adminlte.css") }}>
+<script src={{ asset("/plugins/jquery/jquery.min.js") }}></script>
+<link rel="stylesheet" href={{ asset("/plugins/toastr/toastr.css") }}>
+<script src={{ asset("/js/toastr.js") }}></script>
+@toastr_render

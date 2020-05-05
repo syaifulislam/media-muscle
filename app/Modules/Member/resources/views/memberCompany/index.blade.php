@@ -21,6 +21,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
+        @include('sweetalert::alert')
         @include('component.header')
         @include('component.sidebar')
         <div class="content-wrapper">
@@ -42,7 +43,7 @@
                             <div class="card-body">
                                 <div class="dataTables_wrapper dt-bootstrap4">
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12" style="overflow-x: auto;">
                                             <table id="datatable" class="table table-bordered table-hover">
                                                 <thead>
                                                     <tr>
@@ -68,17 +69,7 @@
                                                         <td>X</td>
                                                         <td>X</td>
                                                         <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-default">Action</button>
-                                                                <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                </button>
-                                                                <div class="dropdown-menu" role="menu" style="">
-                                                                    <a class="dropdown-item" href="#">View Details</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                                </div>
-                                                            </div>
+                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -92,17 +83,7 @@
                                                         <td>X</td>
                                                         <td>X</td>
                                                         <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-default">Action</button>
-                                                                <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                </button>
-                                                                <div class="dropdown-menu" role="menu" style="">
-                                                                    <a class="dropdown-item" href="#">View Details</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                                </div>
-                                                            </div>
+                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -116,17 +97,7 @@
                                                         <td>X</td>
                                                         <td>X</td>
                                                         <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-default">Action</button>
-                                                                <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                </button>
-                                                                <div class="dropdown-menu" role="menu" style="">
-                                                                    <a class="dropdown-item" href="#">View Details</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                                </div>
-                                                            </div>
+                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -140,24 +111,14 @@
                                                         <td>X</td>
                                                         <td>X</td>
                                                         <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-default">Action</button>
-                                                                <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                                                </button>
-                                                                <div class="dropdown-menu" role="menu" style="">
-                                                                    <a class="dropdown-item" href="#">View Details</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item" href="#">Inactive</a>
-                                                                </div>
-                                                            </div>
+                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    @include('component.pagination')
+                                    {{-- @include('component.pagination') --}}
                                 </div>
                             </div>
                         </div>
@@ -165,6 +126,7 @@
                 </div>
             </section>
         </div>
+        @include('component.footer')
     </div>
 </body>
 <script src={{ asset("/plugins/jquery/jquery.min.js") }}></script>
