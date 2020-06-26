@@ -9,6 +9,9 @@ use Sentinel;
 class AuthController extends Controller
 {
     public function page(){
+        if (Sentinel::check()){
+            return redirect('/dashboard');
+        }
         return view("Auth::login");
     }
 

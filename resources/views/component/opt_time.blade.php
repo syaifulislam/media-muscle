@@ -1,0 +1,13 @@
+@for ($i = 0; $i <= 23; $i++)
+    @if ($i < 10)
+        <option value="0{{$i}}:00">0{{$i}}:00</option>
+        <option value="0{{$i}}:15">0{{$i}}:15</option>
+        <option value="0{{$i}}:30">0{{$i}}:30</option>
+        <option value="0{{$i}}:45">0{{$i}}:45</option>
+    @else
+        <option value="{{$i}}:00">{{$i}}:00</option>
+        <option value="{{$i}}:15">{{$i}}:15</option>
+        <option value="{{$i}}:30">{{$i}}:30</option>
+        <option value="{{$i}}:45">{{$i}}:45</option>
+    @endif
+@endfor
