@@ -59,6 +59,7 @@ class Televisions extends Migration
             $table->string('name',100);
             $table->integer('city_id')->unsigned()->nullable();
             $table->enum('region',['National','Local']);
+            $table->tinyInteger('status')->default(1);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -77,6 +78,7 @@ class Televisions extends Migration
             $table->integer('price')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             
@@ -86,6 +88,7 @@ class Televisions extends Migration
         Schema::create('newspapers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',100);
+            $table->tinyInteger('status')->default(1);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -103,6 +106,7 @@ class Televisions extends Migration
             $table->integer('price')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             
@@ -115,6 +119,7 @@ class Televisions extends Migration
             $table->integer('city_id')->unsigned()->nullable();
             $table->decimal('longitude',10,7)->nullable();
             $table->decimal('latitude',10,7)->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -132,6 +137,7 @@ class Televisions extends Migration
             $table->integer('price')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             

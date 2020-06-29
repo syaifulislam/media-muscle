@@ -64,7 +64,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link" style="padding-left:30px">
+                            <a href={{url('/services/radio')}} class="nav-link" style="padding-left:30px">
                             <i class="fas fa-broadcast-tower nav-icon"></i>
                             <p>Radio</p>
                             </a>

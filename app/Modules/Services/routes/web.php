@@ -10,4 +10,14 @@ Route::group(['prefix' => 'services', 'middleware' => 'adminCMS', 'as' => 'servi
         Route::post('detail/{id}', 'TelevisionController@detail_post');
         Route::post('post', 'TelevisionController@post');
     });
+
+    Route::group(['prefix' => 'radio'], function () {
+        Route::get('/', 'RadioController@index');
+        Route::get('form', 'RadioController@form');
+        Route::get('form/{id}', 'RadioController@form');
+        Route::get('detail/{id}', 'RadioController@detail');
+        Route::post('detail/{id}', 'RadioController@detail_post');
+        Route::get('detail-radio/{id}', 'RadioController@detail_radio');
+        Route::post('post', 'RadioController@post');
+    });
 });

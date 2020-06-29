@@ -82,8 +82,8 @@ class TelevisionController extends Controller
     }
 
     public function detail($id){
-        $perPage = 5;
-        $data = TelevisionDetail::where('television_id',$id)->orderBy('created_at','desc')->paginate($perPage);
+        $perPage = 100;
+        $data = TelevisionDetail::where('television_id',$id)->orderBy('date','desc')->paginate($perPage);
         return response()->json([
             'data'=>$data
         ]);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ env("APP_TITLE_PREFIX") }} | Television</title>
+    <title>{{ env("APP_TITLE_PREFIX") }} | Radio</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href={{ asset("favicon.ico") }} type="image/x-icon">
@@ -44,17 +44,17 @@
                                         <div class="card-header p-0 pt-1" style="background-color: #4b545c">
                                             <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Television</a>
+                                                    <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Radio</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false" onclick="findTelevision({{ $data ?? '' ? $data['id'] : 0 }})">Detail</a>
+                                                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false" onclick="findRadio({{ $data ?? '' ? $data['id'] : 0 }})">Detail</a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="card-body">
                                             <div class="tab-content" id="custom-tabs-one-tabContent">
                                                 <div class="tab-pane fade active show" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
-                                                    <form action={{ url("/services/television/post") }} method="post">
+                                                    <form action={{ url("/services/radio/post") }} method="post">
                                                         @csrf
                                                         <input type="text" name="id" value="{{ $data ?? '' ? $data['id'] : null }}" style="display: none">
                                                         <div class="row">
@@ -70,15 +70,9 @@
                                                                 </select>
                                                             </div>
                                                             <div class="form-group col-6">
-                                                                <label for="period">Period</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text">
-                                                                            <i class="far fa-calendar-alt"></i>
-                                                                        </span>
-                                                                    </div>
-                                                                    <input type="text" name="period" value="{{ $data ?? '' ? $data['period'] : old('period') }}" class="form-control float-right" id="period">
-                                                                </div>
+                                                                <label for="city_id">City</label>
+                                                                <select name="city_id" id="city" class="form-control">
+                                                                </select>
                                                             </div>
                                                             <div class="form-group col-6">
                                                                 <label for="status">Status</label>
@@ -112,12 +106,10 @@
                                                             <table id="datatable" class="table table-bordered table-hover">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>Program Name</th>
-                                                                        <th>Date</th>
-                                                                        <th>Time Start</th>
-                                                                        <th>Time End</th>
                                                                         <th>Time</th>
-                                                                        <th>Duration</th>
+                                                                        <th>Period</th>
+                                                                        <th>Type</th>
+                                                                        <th>Price</th>
                                                                         <th></th>
                                                                     </tr>
                                                                 </thead>
@@ -145,7 +137,7 @@
         <div class="modal fade" id="modal-xl">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <form action={{ url("/services/television/detail/".$data['id']) }} method="post">
+                    <form action={{ url("/services/radio/detail/".$data['id']) }} method="post">
                         @csrf
                         <input type="text" name="id" id="detail_id" style="display: none">
                         <div class="modal-header">
@@ -157,10 +149,6 @@
                         <div class="modal-body">
                                 <div class="row">
                                     <div class="form-group col-6">
-                                        <label for="program_name">Program Name</label>
-                                        <input type="text" class="form-control" name="program_name" id="program_name" required>
-                                    </div>
-                                    <div class="form-group col-6">
                                         <label for="time">Time</label>
                                         <select name="time" id="time-detail" class="form-control" required>
                                             <option value="Prime">Prime</option>
@@ -168,51 +156,26 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label for="date">Time</label>
+                                        <label>Period</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">
                                                     <i class="far fa-calendar-alt"></i>
                                                 </span>
                                             </div>
-                                            <input type="text" name="date" value="" class="form-control float-right" id="date_program" required>
+                                            <input type="text" class="form-control" name="period" id="period" required>
                                         </div>
                                     </div>
-                                    <div class="form-group col-3">
-                                        <label>Time Start</label>
-                                        <select name="time_start" id="time_start" class="form-control" style="width: 100%;" required>
-                                            @include('component.opt_time')
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-3">
-                                        <label>Time End</label>
-                                        <select name="time_end" id="time_end" class="form-control" style="width: 100%;" required>
-                                            @include('component.opt_time')
+                                    <div class="form-group col-6">
+                                        <label for="type">Type</label>
+                                        <select name="type" id="type-detail" class="form-control" required>
+                                            <option value="Loose Spot">Loose Spot</option>
+                                            <option value="Add Lips">Add Lips</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label for="duration">Duration</label>
-                                        <select name="duration" id="duration" class="form-control" required>
-                                            <option value="15">15 Minutes</option>
-                                            <option value="30">30 Minutes</option>
-                                            <option value="45">45 Minutes</option>
-                                            <option value="60">60 Minutes</option>
-                                        </select>
-                                    </div>
-                                    {{-- <div class="form-group col-6">
-                                        <label for="position">Position</label>
-                                        <select name="position" class="form-control" id="position" onchange="changePos()">
-                                            <option value="Premium">Premium</option>
-                                            <option value="Run On Point">Run On Point</option>
-                                        </select>
-                                    </div> --}}
-                                    <div class="form-group col-3">
-                                        <label for="premium_price">Premium Price</label>
-                                        <input type="number" class="form-control" name="premium_price" placeholder="nominal" id="premium_price" required>
-                                    </div>
-                                    <div class="form-group col-3">
-                                        <label for="run_price">Run On Point Price</label>
-                                        <input type="number" class="form-control" name="run_price" placeholder="nominal" id="run_price" required>
+                                        <label for="price">Price</label>
+                                        <input type="number" class="form-control" name="price" placeholder="nominal" id="price" required>
                                     </div>
                                 </div>
                         </div>
@@ -232,7 +195,6 @@
 <script src={{ asset("/plugins/select2/js/select2.full.min.js") }}></script>
 <script src={{ asset("/plugins/daterangepicker/daterangepicker.js") }}></script>
 <script src={{ asset("/js/adminlte.min.js") }}></script>
-<script src={{ asset("/js/pagination.js") }}></script>
 <script>
     $(function () {
         $('#period').daterangepicker({
@@ -240,88 +202,70 @@
                 format: 'YYYY-MM-DD'
             }
         })
+        $.ajax({
+                type:'GET',
+                url:'/whitelist/city',
+                success:function(data) {
+                    let optCity = $('#city')
+                    for(let row of data.data){
+                        optCity.append(`<option value="${row.id}">${row.name}</option>`)
+                    }
+                    let dataInit = "{{ $jsInit }}"
+                    if (dataInit == 1){
+                        let dataPassing = {!! json_encode($data ?? '') !!}
+                        $(`#city option[value=${dataPassing.city_id}]`).attr('selected','selected')
+                    }
+                }
+            });
+
     })
 
-    function findTelevision(id){
-        let dataInit = "{{ $jsInit }}"
-        if (dataInit == 1){
-            let dataPassing = {!! json_encode($data ?? '') !!}
-            $('#date_program').daterangepicker({
-                minDate: dataPassing.p_start,
-                maxDate: dataPassing.p_end,
-                singleDatePicker: true,
-                locale: {
-                    format: 'YYYY-MM-DD'
-                }
-            })
-        }
+    function findRadio(id){
         $('.detail-data').show();
         if (id !== 0) {
-            callDetailTelevision(id)
+            $.ajax({
+                type:'GET',
+                url:'/services/radio/detail/'+id,
+                success:function(data) {
+                    $('#body-table-detail').empty()
+                    for(let row of data.data.data){
+                        $('#body-table-detail').append('<tr>')
+                        $('#body-table-detail').append(`<td>${row.time}</td>`)
+                        $('#body-table-detail').append(`<td>${row.period_start} - ${row.period_end}</td>`)
+                        $('#body-table-detail').append(`<td>${row.type}</td>`)
+                        $('#body-table-detail').append(`<td>${row.price}</td>`)
+                        $('#body-table-detail').append(`<td><button type="button" class="btn btn-block btn-default btn-sm" onclick="findDetail(${row.id})"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button></td>`)
+                        $('#body-table-detail').append('</tr>')
+                    }
+                    $('.detail-data').hide();
+                }
+            });
         } else {
             $('.detail-data').hide();
         }
     }
 
-    function callDetailTelevision(id){
-        $.ajax({
-                type:'GET',
-                url:'/services/television/detail/'+id,
-                success:function(data) {
-                    $('#body-table-detail').empty()
-                    for(let row of data.data.data){
-                        $('#body-table-detail').append('<tr>')
-                        $('#body-table-detail').append(`<td>${row.program_name}</td>`)
-                        $('#body-table-detail').append(`<td>${row.date}</td>`)
-                        $('#body-table-detail').append(`<td>${row.time_start}</td>`)
-                        $('#body-table-detail').append(`<td>${row.time_end}</td>`)
-                        $('#body-table-detail').append(`<td>${row.time}</td>`)
-                        $('#body-table-detail').append(`<td>${row.duration}</td>`)
-                        $('#body-table-detail').append(`<td><button type="button" class="btn btn-block btn-default btn-sm" onclick="findDetail(${row.id})"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button></td>`)
-                        $('#body-table-detail').append('</tr>')
-                    }
-                    if (data.data.last_page > data.data.from){
-                        detailPaginate()
-                    }
-                    $('.detail-data').hide();
-                }
-        });
-    }
-    
-
-    function detailPaginate(){
-        let pages = $('#custom-tabs-one-profile')
-    }
-
     function findDetail(detail_id){
         $.ajax({
                 type:'GET',
-                url:'/services/television/detail-television/'+detail_id,
+                url:'/services/radio/detail-radio/'+detail_id,
                 success:function(data) {
-                    $('#program_name').val(data.data.program_name)
                     $('#detail_id').val(data.data.id)
                     $('#time-detail').val(data.data.time)
-                    $('#time_start').val(data.data.time_start)
-                    $('#time_end').val(data.data.time_end)
-                    $('#duration').val(data.data.duration)
-                    $('#date_program').val(data.data.date)
-                    $('#premium_price').val(data.data.premium_price)
-                    $('#run_price').val(data.data.run_price)
+                    $('#type-detail').val(data.data.type)
+                    $('#period').val(`${data.data.period_start} - ${data.data.period_end}`)
+                    $('#price').val(data.data.price)
                     $('#modal-xl').modal('show');
                 }
             });
     }
 
     function modalCreate(){
-        $('#program_name').val(null)
         $('#detail_id').val(null)
         $('#time-detail').val(null)
-        $('#time_start').val(null)
-        $('#time_end').val(null)
-        $('#duration').val(null)
-        $('#date_program').val(null)
-        $('#premium_price').val(null)
-        $('#run_price').val(null)
+        $('#type-detail').val(null)
+        $('#period').val(null)
+        $('#price').val(null)
     }
 </script>
 </html>
