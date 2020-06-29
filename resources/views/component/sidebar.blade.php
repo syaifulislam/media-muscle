@@ -75,16 +75,7 @@
                             <a href="#" class="nav-link" style="padding-left:30px">
                             <i class="fas fa-newspaper nav-icon"></i>
                             <p>Newspaper</p>
-                            <i class="fas fa-angle-left right"></i>
                             </a>
-                            <ul class="nav nav-treeview" style="padding-left:30px">
-                                <li class="nav-item has-treeview">
-                                    <a href="#" class="nav-link">
-                                    <i class="fas fa-ad nav-icon"></i>
-                                    <p>Brand</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                     <ul class="nav nav-treeview">
