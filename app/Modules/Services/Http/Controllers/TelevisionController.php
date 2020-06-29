@@ -34,6 +34,7 @@ class TelevisionController extends Controller
     }
 
     public function post(Request $request){
+        $created = Sentinel::getUser()->id;
         if ($request->all()['id'] === null) {
             $body = $request->except(['_token','id']);
             $checkData = Television::where('name',$body['name'])->first();
@@ -41,7 +42,6 @@ class TelevisionController extends Controller
                 toastr()->error('DUPLICATE BROADCASTER NAME!');
                 return redirect()->back()->withInput();
             }
-            $created = Sentinel::getUser()->id;
             $periodExplode = explode(' - ',$body['period']);
             $newBody = [
                 'name' => $body['name'],
@@ -63,16 +63,26 @@ class TelevisionController extends Controller
                 'status' => $data['status'],
             ];
             toastr()->success('YOUR POST HAS BEEN SUBMITED!');
-            return redirect('/services/television');
+            return redirect('/services/television/form/'.$newData['id']);
         } else {
+            $body = $request->except(['_token','id']);
+            $periodExplode = explode(' - ',$body['period']);
+            $newBody = [
+                'name' => $body['name'],
+                'period_start' => $periodExplode[0],
+                'period_end' => $periodExplode[1],
+                'region' => $body['region'],
+                'status' => $body['status'],
+                'updated_by' => $created
+            ];
+            $data = Television::where('id',(int)$request->all()['id'])->update($newBody);
             toastr()->success('YOUR POST HAS BEEN UPDATED!');
             return redirect()->back();
-            // return redirect()->back()->with('data',$data);
         }
     }
 
     public function detail($id){
-        $perPage = 10;
+        $perPage = 5;
         $data = TelevisionDetail::where('television_id',$id)->orderBy('created_at','desc')->paginate($perPage);
         return response()->json([
             'data'=>$data
