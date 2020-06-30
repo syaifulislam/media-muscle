@@ -11,6 +11,6 @@ class CityController extends Controller
     public function index()
     {
         $data = City::get()->pluck('name');
-        return view("Configuration::index", compact('data'));
+        return view("Configuration::city.index", compact('data'));
     }
 }

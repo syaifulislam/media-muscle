@@ -48,6 +48,14 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item has-treeview">
+                            <a href={{ url("/configuration/banner") }} class="nav-link" style="padding-left:30px">
+                            <i class="fas fa-images nav-icon"></i>
+                            <p>Banner</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item has-treeview {{ Route::currentRouteName() === "services" ?  "menu-open" : ""}}">
                     <a href="#" class="nav-link">

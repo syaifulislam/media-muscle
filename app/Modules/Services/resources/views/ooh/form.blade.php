@@ -198,7 +198,7 @@
 <script src={{ asset("/plugins/select2/js/select2.full.min.js") }}></script>
 <script src={{ asset("/plugins/daterangepicker/daterangepicker.js") }}></script>
 <script src={{ asset("/js/adminlte.min.js") }}></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8hqwlMlhHMfmgqgkv3nuvWHLdE9V2x_s&callback=initMap&libraries=places"
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GMAPS_API_KEY') }}&callback=initMap&libraries=places"
   type="text/javascript"></script>
 <script>
     $(function () {

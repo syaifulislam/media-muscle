@@ -177,6 +177,7 @@ return [
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
     ],
 
     /*
@@ -232,6 +233,7 @@ return [
         'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder'
     ],
 
 ];
