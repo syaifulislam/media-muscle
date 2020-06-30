@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href={{ url("/dashboard") }} class="brand-link">
-        <img src={{ asset("img/AdminLTELogo.png") }} alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src={{ asset("img/default-150x150.png") }} class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Media Muscle</span>
     </a>
 
@@ -72,7 +72,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link" style="padding-left:30px">
+                            <a href={{url('/services/newspaper')}} class="nav-link" style="padding-left:30px">
                             <i class="fas fa-newspaper nav-icon"></i>
                             <p>Newspaper</p>
                             </a>
@@ -80,7 +80,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link" style="padding-left:30px">
+                            <a href={{url('/services/out-of-home')}} class="nav-link" style="padding-left:30px">
                             <i class="fas fa-flag nav-icon"></i>
                             <p>Out of Home</p>
                             </a>

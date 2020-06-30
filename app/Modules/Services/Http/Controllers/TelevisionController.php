@@ -102,7 +102,7 @@ class TelevisionController extends Controller
         } else {
             $body = $request->except(['_token','id']);
             $body['updated_by'] = $created;
-            TelevisionDetail::where('id',(int)$request->only('id'))->update($body);
+            TelevisionDetail::where('id',(int)$request->only('id')['id'])->update($body);
             toastr()->success('YOUR POST HAS BEEN SUBMITED!');
             return redirect()->back();
         }
