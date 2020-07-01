@@ -1,2 +1,18 @@
 <?php
-Route::get('api', 'AuthController@api');
+Route::group(['prefix' => 'v1/api'], function () {
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('login', 'AuthApiController@login');
+        Route::post('register', 'AuthApiController@register');
+        Route::post('confirmEmail', 'AuthApiController@confirm_email');
+        Route::post('forgotPassword', 'AuthApiController@forgot_password');
+        Route::post('forgotPasswordGenerate', 'AuthApiController@forgot_password_generate');
+    });
+
+    Route::group(['prefix' => 'help'], function () {
+        Route::post('/', 'AuthApiController@helpMail');
+    });
+
+    Route::group(['prefix' => 'get','middleware'=>'websiteApi'], function () {
+        Route::get('me', 'AuthApiController@me');
+    });
+});

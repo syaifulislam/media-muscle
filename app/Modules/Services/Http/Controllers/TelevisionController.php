@@ -94,6 +94,7 @@ class TelevisionController extends Controller
         if ($request->all()['id'] === null){
             $body = $request->except(['_token','id']);
             $body['television_id'] = $id;
+            $body['duration'] = "15";
             $body['created_by'] = $created;
             $body['updated_by'] = $created;
             TelevisionDetail::create($body);

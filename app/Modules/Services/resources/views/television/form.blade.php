@@ -192,11 +192,11 @@
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="duration">Duration</label>
-                                        <select name="duration" id="duration" class="form-control" required>
-                                            <option value="15">15 Minutes</option>
-                                            <option value="30">30 Minutes</option>
-                                            <option value="45">45 Minutes</option>
-                                            <option value="60">60 Minutes</option>
+                                        <select name="duration" id="duration" class="form-control" disabled>
+                                            <option value="15">15 Seconds</option>
+                                            <option value="30">30 Seconds</option>
+                                            <option value="45">45 Seconds</option>
+                                            <option value="60">60 Seconds</option>
                                         </select>
                                     </div>
                                     {{-- <div class="form-group col-6">
@@ -318,7 +318,6 @@
         $('#time-detail').val(null)
         $('#time_start').val(null)
         $('#time_end').val(null)
-        $('#duration').val(null)
         $('#date_program').val(null)
         $('#premium_price').val(null)
         $('#run_price').val(null)

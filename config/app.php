@@ -178,6 +178,8 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Webup\LaravelSendinBlue\SendinBlueServiceProvider::class,
     ],
 
     /*
@@ -233,7 +235,9 @@ return [
         'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        'Cloudder' => 'JD\Cloudder\Facades\Cloudder'
+        'Cloudder' => 'JD\Cloudder\Facades\Cloudder',
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class, 
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];
