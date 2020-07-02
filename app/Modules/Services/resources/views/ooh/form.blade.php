@@ -79,13 +79,18 @@
                                                                 </select>
                                                             </div>
                                                             <div class="form-group col-6">
+                                                                <label for="region">Region</label>
+                                                                <select name="region" class="form-control">
+                                                                    <option value="National" @if(isset($data) && $data['region'] === 'National') selected @endif>National</option>
+                                                                    <option value="Local" @if(isset($data) && $data['region'] === 'Local') selected @endif>Local</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-6">
                                                                 <label for="status">Status</label>
                                                                 <select name="status" class="form-control">
                                                                     <option value="1" @if(isset($data) && $data['status'] == 1) selected @endif>Active</option>
                                                                     <option value="0" @if(isset($data) && $data['status'] == 0) selected @endif>Inactive</option>
                                                                 </select>
-                                                            </div>
-                                                            <div class="form-group col-6">
                                                             </div>
                                                             <div class="col-2">
                                                                 <button type="submit" class="btn btn-block btn-outline-secondary middle-button">

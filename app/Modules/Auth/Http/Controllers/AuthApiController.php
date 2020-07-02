@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ApiRegister;
 use App\Client;
+use App\City;
 use Illuminate\Support\Facades\Hash;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -84,6 +85,19 @@ class AuthApiController extends Controller
 
     public function me(){
         $user = JWTAuth::parseToken()->authenticate();
+        if ($user['isVerif'] == 0){
+            return response()->json([
+                'code' => 404,
+                'message' => 'Verify email first!'
+            ],404);
+        }
+        
+        if ($user['status'] == 0){
+            return response()->json([
+                'code' => 404,
+                'message' => 'Your account has been banned!'
+            ],404);
+        }
         return response()->json([
             'code' => 200,
             'message' => 'success',
@@ -212,5 +226,14 @@ class AuthApiController extends Controller
             $message->from(env('MAIL_FROM_ADDRESS'),'Media Muscle');
         });
         return $data;
+    }
+
+    public function city(){
+        $data = City::select(['id','name'])->orderBy('name','asc')->get();
+        return response()->json([
+            'code' => 200,
+            'message' => 'success',
+            'token' => $data
+        ],200);
     }
 }

@@ -12,4 +12,7 @@ class NewspaperDetail extends Model
         'newspaper_id','period_start','period_end','size','size','position','price','created_by','updated_by'
     ];
 
+    public function newspaper(){
+        return $this->belongsTo('App\Newspaper');
+    }
 }

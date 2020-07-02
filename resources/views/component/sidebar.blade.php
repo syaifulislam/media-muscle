@@ -101,6 +101,12 @@
                         <p>Users</p>
                     </a>
                 </li>
+                <li class="nav-item {{ Route::currentRouteName() === "order" ?  "menu-open" : ""}}">
+                    <a href={{ url("/order") }} class="nav-link">
+                        <i class="nav-icon fas fa-shopping-cart"></i>
+                        <p>Order</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href={{ url("auth/logout") }} class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

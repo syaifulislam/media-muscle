@@ -11,4 +11,8 @@ class OutOfHomeDetail extends Model
     protected $fillable = [
         'out_of_home_id','type','duration','period','price','created_by','updated_by'
     ];
+
+    public function out_of_home(){
+        return $this->belongsTo('App\OutOfHome');
+    }
 }

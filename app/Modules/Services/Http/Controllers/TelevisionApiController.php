@@ -29,6 +29,7 @@ class TelevisionApiController extends Controller
         $duration = $request->get('duration');
         $position = $request->get('position');
         $time = $request->get('time');
+        $date = $request->get('date');
         $television_detail_id = $request->get('television_program_id');
         $data = TelevisionDetail::where(function($q) use($request){
             $television_id = $request->get('television_id');
@@ -64,8 +65,8 @@ class TelevisionApiController extends Controller
             "radio_detail_id" => null,
             "newspaper_detail_id" => null,
             "out_of_home_detail_id" => null,
-            "period_start" => null,
-            "period_end" => null
+            "period_start" => $date,
+            "period_end" => $date
         ];
         
         return response()->json([

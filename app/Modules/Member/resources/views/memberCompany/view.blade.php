@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ env("APP_TITLE_PREFIX") }} | Member Personal</title>
+    <title>{{ env("APP_TITLE_PREFIX") }} | Member Company</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href={{ asset("favicon.ico") }} type="image/x-icon">
@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="form-group col-6">
-                                        <label for="first_name">Full Name</label>
+                                        <label for="first_name">Company Name</label>
                                         <input type="text" class="form-control" id="first_name" value="{{$data->name}}" disabled>
                                     </div>
                                     <div class="form-group col-6">
@@ -41,23 +41,15 @@
                                         <input type="text" class="form-control" id="phone_code" value="+{{$data->phone_code}}{{$data->phone_number}}" disabled>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label for="nationality">Nationality</label>
-                                        <input type="text" class="form-control" id="nationality" value="{{$data->nationality}}" disabled>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="dob">Date of Birth</label>
-                                        <input type="text" class="form-control" id="dob" value="{{$data->date_of_birth}}" disabled>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="id_card">ID Card</label>
-                                        <input type="text" class="form-control" id="id_card" value="{{$data->ktp}}" disabled>
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" value="{{$data->address}}" disabled>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="npwp">NPWP</label>
                                         <input type="text" class="form-control" id="npwp" value="{{$data->npwp}}" disabled>
                                     </div>
                                     <hr style="border: 1px solid grey;">
-                                    <form action={{ url("/member/personal/".$data->id) }} method="post" class="col-12">
+                                    <form action={{ url("/member/company/".$data->id) }} method="post" class="col-12">
                                         @csrf
                                         <div class="form-group col-2">
                                             <label>Status</label>

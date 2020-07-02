@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class OutOfHome extends Model
 {
     protected $fillable = [
-        'name','city_id','longitude','latitude','status','created_by','updated_by'
+        'name','region','city_id','longitude','latitude','status','created_by','updated_by'
     ];
 
     public function city(){

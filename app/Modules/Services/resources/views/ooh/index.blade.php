@@ -52,6 +52,7 @@
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>City</th>
+                                                        <th>Region</th>
                                                         <th>Status</th>
                                                         <th></th>
                                                     </tr>
@@ -62,6 +63,7 @@
                                                             <tr>
                                                                 <td>{{$item['name']}}</td>
                                                                 <td>{{$item['city']['name']}}</td>
+                                                                <td>{{$item['region']}}</td>
                                                                 <td>{{$item['status'] === 1 ? 'Active' : 'Inactive'}}</td>
                                                                 <td>
                                                                     <button type="button" class="btn btn-block btn-default btn-sm"><a href={{ url("/services/out-of-home/form/".$item['id']) }} class="text-muted"><i class="fas fa-eye"></i> View</a></button>

@@ -57,67 +57,27 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Trident</td>
-                                                        <td>Internet
-                                                            Explorer 4.0
-                                                        </td>
-                                                        <td>Win 95+</td>
-                                                        <td> 4</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href={{ url("member/personal/"."123") }} class="text-muted"><i class="fas fa-eye"></i> View</a></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Trident</td>
-                                                        <td>Internet
-                                                            Explorer 4.0
-                                                        </td>
-                                                        <td>Win 95+</td>
-                                                        <td> 4</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Trident</td>
-                                                        <td>Internet
-                                                            Explorer 4.0
-                                                        </td>
-                                                        <td>Win 95+</td>
-                                                        <td> 4</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Trident</td>
-                                                        <td>Internet
-                                                            Explorer 4.0
-                                                        </td>
-                                                        <td>Win 95+</td>
-                                                        <td> 4</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>X</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-block btn-default btn-sm"><a href="#" class="text-muted"><i class="fas fa-eye"></i> View</a></button>
-                                                        </td>
-                                                    </tr>
+                                                    @if (isset($data))
+                                                        @foreach ($data as $item)
+                                                            <tr>
+                                                                <td>{{$item->name}}</td>
+                                                                <td>{{$item->email}}</td>
+                                                                <td>{{$item->phone_code}}{{$item->phone_number}}</td>
+                                                                <td>{{$item->nationality}}</td>
+                                                                <td>{{$item->date_of_birth}}</td>
+                                                                <td>{{$item->ktp}}</td>
+                                                                <td>{{$item->status === 1 ? 'Active' : 'Inactive'}}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-block btn-default btn-sm"><a href={{ url("member/personal/".$item->id) }} class="text-muted"><i class="fas fa-eye"></i> View</a></button>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    {{-- @include('component.pagination') --}}
+                                    {{ $data->links('component.pagination') }}
                                 </div>
                             </div>
                         </div>

@@ -8,6 +8,7 @@ use JWTAuth;
 use DB;
 use App\Order;
 use App\OrderDetail;
+use Carbon\Carbon;
 
 class OrderApiController extends Controller
 {
@@ -20,12 +21,14 @@ class OrderApiController extends Controller
         }
         $user = JWTAuth::parseToken()->authenticate();
         $clientId = $user['id'];
-        
+        $now = Carbon::now()->format('Ymd');
+        $nowTime = Carbon::now()->format('His');
+        $rand = mt_rand(1000000, 9999999);
         try{
             DB::beginTransaction();
             $bodyOrder = [
                 'client_id' => $clientId,
-                'invoice_number' => 'asdasd',
+                'invoice_number' => "$now-$clientId-$rand-$nowTime",
                 'status' => 'On Progress',
                 'total_price' => $totalPrice
             ];

@@ -12,6 +12,10 @@ Route::group(['prefix' => 'v1/api'], function () {
         Route::post('/', 'AuthApiController@helpMail');
     });
 
+    Route::group(['prefix' => 'city'], function () {
+        Route::get('/', 'AuthApiController@city');
+    });
+
     Route::group(['prefix' => 'get','middleware'=>'websiteApi'], function () {
         Route::get('me', 'AuthApiController@me');
     });

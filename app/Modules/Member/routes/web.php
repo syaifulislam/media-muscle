@@ -8,5 +8,7 @@ Route::group(['prefix' => 'member', 'middleware' => 'adminCMS', 'as' => 'member'
     });
     Route::group(['prefix' => 'company'], function () {
         Route::get('/', 'MemberController@indexCompany');
+        Route::get('/{id}', 'MemberController@indexCompanyDetail');
+        Route::post('/{id}', 'MemberController@updateCompany');
     });
 });
