@@ -236,4 +236,35 @@ class AuthApiController extends Controller
             'token' => $data
         ],200);
     }
+
+    public function updateProfileMember(Request $request){
+        $user = JWTAuth::parseToken()->authenticate();
+        $body = $request->all();
+        Client::where("id",$user->id)->update($body);
+        return response()->json([
+            'code' => 200,
+            'message' => 'success'
+        ],200);
+    }
+
+    public function changePasswordMember(Request $request){
+        $user = JWTAuth::parseToken()->authenticate();
+        $credentials = [
+            'email' => $user->email,
+            'password' => $request->get('current_password')
+        ];
+        $attempt = JWTAuth::attempt($credentials);
+        if (!$attempt){
+            return response()->json([
+                'code' => 404,
+                'message' => 'Current password not match'
+            ],404);
+        }
+        $newPassword = Hash::make($request->get('new_password'));
+        Client::where('id',$user->id)->update(['password' => $newPassword]);
+        return response()->json([
+            'code' => 200,
+            'message' => 'success'
+        ],200);
+    }
 }

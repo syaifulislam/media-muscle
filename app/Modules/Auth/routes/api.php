@@ -16,7 +16,9 @@ Route::group(['prefix' => 'v1/api'], function () {
         Route::get('/', 'AuthApiController@city');
     });
 
-    Route::group(['prefix' => 'get','middleware'=>'websiteApi'], function () {
-        Route::get('me', 'AuthApiController@me');
+    Route::group(['prefix' => 'member','middleware'=>'websiteApi'], function () {
+        Route::get('getMe', 'AuthApiController@me');
+        Route::post('update', 'AuthApiController@updateProfileMember');
+        Route::post('changePassword', 'AuthApiController@changePasswordMember');
     });
 });
