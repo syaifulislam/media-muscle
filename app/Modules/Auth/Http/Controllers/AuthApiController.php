@@ -88,7 +88,8 @@ class AuthApiController extends Controller
         if ($user['isVerif'] == 0){
             return response()->json([
                 'code' => 404,
-                'message' => 'Verify email first!'
+                'message' => 'Verify email first!',
+                'data' => $user
             ],404);
         }
         
