@@ -60,7 +60,7 @@ class OrderApiController extends Controller
         
         $user = JWTAuth::parseToken()->authenticate();
         $clientId = $user['id'];
-        $data = Order::select(['id','invoice_number','total_price','status'])->where('client_id',$clientId)
+        $data = Order::select(['id','invoice_number','total_price','status','created_at'])->where('client_id',$clientId)
         ->with(['order_detail' => function($q){
             $q->select(['id','order_id','item_name','price','period_start','period_end']);
         }])->limit($limit)->offset($offset)->get();
