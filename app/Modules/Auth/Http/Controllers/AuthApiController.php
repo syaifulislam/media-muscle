@@ -178,7 +178,7 @@ class AuthApiController extends Controller
             - Email : $email 
             - Phone Number : $phone_number 
             - Question : $question
-            <mailto:someone@example.com?subject=Answer|Click here> to response the question!"
+            <mailto:".$email."?subject=Answer|Click here> to response the question!"
         ];
         $response = $client->request('POST', $url, [
             'headers' => [
