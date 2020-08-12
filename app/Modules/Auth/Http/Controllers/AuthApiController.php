@@ -87,10 +87,10 @@ class AuthApiController extends Controller
         $user = JWTAuth::parseToken()->authenticate();
         if ($user['isVerif'] == 0){
             return response()->json([
-                'code' => 404,
+                'code' => 200,
                 'message' => 'Verify email first!',
                 'data' => $user
-            ],404);
+            ],200);
         }
         
         if ($user['status'] == 0){
